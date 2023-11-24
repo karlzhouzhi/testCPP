@@ -1,22 +1,58 @@
 {
-    "version": "2.0.0",
-    "tasks": [
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
       {
-        "label": "Build with Clang",
-        "type": "shell",
-        "command": "clang++",
-        "args": [
-          "-std=c++17",
-          "-stdlib=libc++",
-          "main.cpp",
-          "-o",
-          "main.out",
-          "--debug"
-        ],
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        }
+         //这个大括号里是‘构建（build）’任务
+         "label": "build", //任务名称，可以更改，不过不建议改
+         "type": "shell", //任务类型，process是vsc把预定义变量和转义解析后直接全部传给command；shell相当于先打开shell再输入命令，所以args还会经过shell再解析一遍
+         "command": "clang++", //编译命令，这里是gcc，编译c++的话换成g++
+          "args": [
+            "-std=c++17",
+            "-stdlib=libc++",
+            //"test.cpp",这里是官方写法，不具有普遍性，注意两个配置文件的统一性即可
+            // "${fileBasenameNoExtension}.cpp",
+            // "-o",
+            // //"test.out",
+            // "${fileBasenameNoExtension}",
+            "-fdiagnostics-color=always",
+            "-g",
+            "${fileDirname}/*.cpp",//编译全部cpp文件
+            "-o",
+            "${fileDirname}/out/${fileBasenameNoExtension}", //产出放到当前目录的out子目录下集中管理
+            "--debug"
+          ],
+          
+          "group": {  //group表示‘组’，我们可以有很多的task，然后把他们放在一个‘组’里
+              "kind": "build",//表示这一组任务类型是构建
+              "isDefault": true//表示这个任务是当前这组任务中的默认任务
+          },
+          "presentation": { //执行这个任务时的一些其他设定
+              "echo": true,//表示在执行任务时在终端要有输出
+              "reveal": "always", //执行任务时是否跳转到终端面板，可以为always，silent，never
+              "focus": false, //设为true后可以使执行task时焦点聚集在终端，但对编译来说，设为true没有意义，因为运行的时候才涉及到输入
+              "panel": "shared" //new:每次执行这个task时都新建一个终端面板，也可以设置为 shared ，共用一个面板，不过那样会出现‘任务将被终端重用’的提示，比较烦人
+          },
+          "problemMatcher": "$gcc" //捕捉编译时编译器在终端里显示的报错信息，将其显示在vscode的‘问题’面板里
+      
       }
-    ]
-  }
+      ,
+      {
+          "label": "run",
+          "type": "shell",
+          "dependsOn": "build",
+          "command": "${workspaceFolder}/target/${fileBasenameNoExtension}.o",
+          "group": {
+              "kind": "test",
+              "isDefault": true
+          },
+          "presentation": {
+              "echo": true,
+              "reveal": "always",
+              "focus": true,
+              "panel": "shared"
+          }
+      }
+  ]
+}
