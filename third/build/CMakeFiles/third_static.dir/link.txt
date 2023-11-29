@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc /Users/zhouzhi96/work/source/business/cpp/testCPP/third/lib/libthird.a CMakeFiles/third_static.dir/src/add.cpp.o CMakeFiles/third_static.dir/src/multiply.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib /Users/zhouzhi96/work/source/business/cpp/testCPP/third/lib/libthird.a

@@ -1,0 +1,4 @@
+/Users/zhouzhi96/work/source/business/cpp/testCPP/third/build/CMakeFiles/third_shared.dir
+/Users/zhouzhi96/work/source/business/cpp/testCPP/third/build/CMakeFiles/third_static.dir
+/Users/zhouzhi96/work/source/business/cpp/testCPP/third/build/CMakeFiles/edit_cache.dir
+/Users/zhouzhi96/work/source/business/cpp/testCPP/third/build/CMakeFiles/rebuild_cache.dir

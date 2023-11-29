@@ -22,8 +22,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/zhouzhi96/work/source/business/cpp/testCPP/second",
-      "program": "/Users/zhouzhi96/work/source/business/cpp/testCPP/second/build/Debug/outDebug"
+      "cwd": "/Users/zhouzhi96/work/source/business/cpp/testCPP/third/src",
+      "program": "/Users/zhouzhi96/work/source/business/cpp/testCPP/third/src/build/Debug/outDebug"
     }
   ]
 }

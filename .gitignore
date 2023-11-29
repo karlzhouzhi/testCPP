@@ -3,3 +3,4 @@
 ./*/CMakeFiles
 ./second/build
 ./second/bin
+./third/build
