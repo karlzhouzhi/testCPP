@@ -12,6 +12,10 @@ add_library(third_shared SHARED ${SRC_LIST})
 add_library(third_static STATIC ${SRC_LIST})
 set_target_properties(third_shared PROPERTIES OUTPUT_NAME "third")
 set_target_properties(third_static PROPERTIES OUTPUT_NAME "third")
+# set_target_properties(third PROPERTIES VERSION 1.0.0 SOVERSION 1)
+# set_target_properties(mylib PROPERTIES
+#     LIBRARY_OUTPUT_NAME mylib
+#     LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 include_directories(include)
