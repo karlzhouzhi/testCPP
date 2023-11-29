@@ -9,6 +9,7 @@ using namespace std;
 int main(){
 
     std::cout << "Hello World!" << std::endl;
+    int i;
 
     demo d1;
     multiply d2;

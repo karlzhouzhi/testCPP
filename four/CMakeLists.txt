@@ -12,6 +12,9 @@ include_directories(${PROJECT_SOURCE_DIR}/test/inc)
 # find_library(TEST_LIB third HINTS ${PROJECT_SOURCE_DIR}/test/lib)
 find_library(TEST_LIB2  libthird.dylib HINTS ${PROJECT_SOURCE_DIR}/test/lib)
 
+# 有时编译程序时想添加一些编译选项，如-Wall，-std=c++11等，就可以使用add_compile_options来进行操作
+add_compile_options(-std=c++11 -Wall -g)
+
 add_executable(four ${SRC_LIST_PATH})
 
 # target_link_libraries: 把目标文件与库文件进行链接
